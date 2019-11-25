@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model
 {
-    interface ICharacter
+    class CharacterFactory
     {
-
-        void LowerHealth(int damage);
-        void UseAttack(string attack, ICharacter character);
-
     }
-
 }

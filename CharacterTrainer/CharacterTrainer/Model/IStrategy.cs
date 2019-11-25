@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharacterTrainer.Model
+namespace CharacterTrainer.Model.Activities
 {
-    class GameLogic
+    interface IStrategy
     {
-
-        private Character Character;
-        private GameTime Time;
-
+        void ExecuteStrat(ICharacter character);
     }
 }

@@ -1,0 +1,42 @@
+[
+    {
+                "name": "vegeta",
+                "level": 1,
+                "hp": 50,
+                "energy": 50, 
+                "attacks": ["Punch", "Kick", "Ki-blast"],
+                "imgPaths": []
+    },
+    {
+                "name": "vegeta",
+                "level": 2,
+                "hp": 60,
+                "energy": 60, 
+                "attacks": ["Punch", "Final-flash"],
+                "imgPaths": []
+    },
+    {
+                "name": "frieza",
+                "level": 3,
+                "hp": 70,
+                "energy": 70, 
+                "attacks": ["Kick", "Spirit-bomb"],
+                "imgPaths": []
+    },
+    {
+                "name": "broly",
+                "level": 4,
+                "hp": 80,
+                "energy": 70, 
+                "attacks": ["Punch", "Eraser-cannon"],
+                "imgPaths": []
+    },
+    {
+                "name": "vegeta",
+                "level": 5,
+                "hp": 70,
+                "energy": 80, 
+                "attacks": ["Final-flash", "Bigbang"],
+                "imgPaths": []
+    }
+]

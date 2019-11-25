@@ -46,28 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Activities\Pee.cs" />
+    <Compile Include="Model\CharacterFactory.cs" />
+    <Compile Include="Model\IStrategy.cs" />
     <Compile Include="Model\Character.cs" />
-    <Compile Include="Model\Drink.cs" />
-    <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\Enemy.cs" />
+    <Compile Include="Model\Consumables\Food.cs" />
     <Compile Include="Model\Game\GameLogic.cs" />
     <Compile Include="Model\Game\GameTime.cs" />
     <Compile Include="Model\ICharacter.cs" />
-    <Compile Include="Model\IConsumable.cs" />
-    <Compile Include="Model\IMedicine.cs" />
-    <Compile Include="Model\Rooms\Bathroom.cs" />
-    <Compile Include="Model\Rooms\Bedroom.cs" />
-    <Compile Include="Model\Rooms\Cellar.cs" />
-    <Compile Include="Model\Rooms\FightArea.cs" />
-    <Compile Include="Model\Rooms\Gym.cs" />
-    <Compile Include="Model\Rooms\IRoom.cs" />
-    <Compile Include="Model\ISicknes.cs" />
-    <Compile Include="Model\Medicine.cs" />
-    <Compile Include="Model\Rooms\Kitchen.cs" />
-    <Compile Include="Model\Rooms\Orchard.cs" />
-    <Compile Include="Model\Rooms\Pool.cs" />
-    <Compile Include="Model\Rooms\SoccerField.cs" />
-    <Compile Include="Model\Rooms\Yard.cs" />
-    <Compile Include="Model\Sickness.cs" />
+    <Compile Include="Model\Consumables\IConsumable.cs" />
+    <Compile Include="Model\Activities\Poop.cs" />
+    <Compile Include="Model\Activities\Sleep.cs" />
+    <Compile Include="Model\Activities\Fight.cs" />
+    <Compile Include="Model\Activities\Spar.cs" />
+    <Compile Include="Model\Consumables\Medicine.cs" />
+    <Compile Include="Model\Activities\Consume.cs" />
+    <Compile Include="Model\Activities\Meditate.cs" />
+    <Compile Include="Model\Activities\Run.cs" />
+    <Compile Include="Model\Activities\Walk.cs" />
+    <Compile Include="Model\Activities\Friends.cs" />
+    <Compile Include="Model\Condition.cs" />
+    <Compile Include="Model\Loader\AttackJSON.cs" />
+    <Compile Include="Model\Loader\CharacterJSON.cs" />
+    <Compile Include="Model\Loader\EnemyJSON.cs" />
+    <Compile Include="Model\Loader\FileLoader.cs" />
+    <Compile Include="Model\Loader\ILoader.cs" />
+    <Compile Include="Model\Loader\ItemJSON.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +103,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controller\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

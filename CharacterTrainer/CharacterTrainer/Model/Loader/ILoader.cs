@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CharacterTrainer.Model
+namespace CharacterTrainer.Model.Loader
 {
-    class GameLogic
+    interface ILoader
     {
-
-        private Character Character;
-        private GameTime Time;
-
+        object Load(string file);
     }
 }

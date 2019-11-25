@@ -1,0 +1,50 @@
+[
+    {
+        "name": "onion",
+        "energy": 10,
+        "health": 10,
+        "hunger": 30,
+        "thirst": 10,
+        "imgPaths": null
+    },
+    {
+        "name": "carrot",
+        "energy": 10,
+        "health": 10,
+        "hunger": 30,
+        "thirst": 10,
+        "imgPaths": null
+    },
+    {
+        "name": "sensu",
+        "energy": 1000,
+        "health": 1000,
+        "hunger": 1000,
+        "thirst": 1000,
+        "imgPaths": null
+    },
+    {
+        "name": "4star",
+        "energy": 1000,
+        "health": 1000,
+        "hunger": 1000,
+        "thirst": 1000,
+        "imgPaths": null
+    },
+    {
+        "name": "watermelon",
+        "energy": 30,
+        "health": 10,
+        "hunger": 20,
+        "thirst": 80,
+        "imgPaths": null
+    },
+    {
+        "name": "mushroom",
+        "energy": 20,
+        "health": 20,
+        "hunger": 50,
+        "thirst": 20,
+        "imgPaths": null
+    }
+]
