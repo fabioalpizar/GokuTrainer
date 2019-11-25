@@ -9,16 +9,22 @@ namespace CharacterTrainer.Model
     class Food : IConsumable
     {
 
-        private string Name { get; set; }
-        private int Points { get; set; }
+        private string name;
+        private List<int> points;
+        private string image;
 
-        public Food(string _name, int _points)
+        public string Name { get; set; }
+        public List<int> Points { get; set; }
+        public int Image { get; set; }
+
+        public Food(string _name, List<int> _points, string _image)
         {
-            this.Name= _name;
-            this.Points = _points;
+            this.name= _name;
+            this.points = _points;
+            this.image = _image;
         }
 
-        public int Consume(ICharacter character)
+        void IConsumable.Consume(ICharacter character)
         {
             throw new NotImplementedException();
         }

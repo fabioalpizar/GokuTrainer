@@ -18,11 +18,22 @@ namespace CharacterTrainer.Model
         private int thirst;
         private int hunger;
         private string condition;
+        private List<Attack> attacks;
         private List<string> images;
 
-        public Character()
+        public Character(string _name, int _level, int _speed, int _hp, int _happiness, int _energy, int _thirst, int _hunger, string _condition, List<Attack> _attacks, List<string> _images)
         {
-
+            this.name = _name;
+            this.level = _level;
+            this.speed = _speed;
+            this.hp = _hp;
+            this.happiness = _happiness;
+            this.energy = _energy;
+            this.thirst = _thirst;
+            this.hunger = _hunger;
+            this.condition = _condition;
+            this.attacks = _attacks;
+            this.images = _images;
         }
 
         public string Name { get; set; }
@@ -36,16 +47,41 @@ namespace CharacterTrainer.Model
         public string Condition { get; set; }
         public List<string> Images { get; set; }
 
-        public void AddAttack(string attack) { }
+        public void AddAttack(string attack, List<Attack> attackList)
+        {
+            for (int i = 0; i < attackList.Count; i++)
+            {
+                if (true)
+                {
+                    this.attacks.Add(attackList[i]);
+                }
+            }
+        }
 
         public void LowerHealth(int damage)
         {
             this.hp = this.hp - damage;
         }
 
+        public void RemoveAttack(Attack atk)
+        {
+            this.attacks.Remove(atk);
+        }
+
         public void UseAttack(string attack, ICharacter character)
         {
-            throw new NotImplementedException();
+            Attack atk = null;
+            for (int i = 0; i < this.attacks.Count(); i++)
+            {
+                if (this.attacks[i].Name.Equals(attack))
+                {
+                    atk = attacks[i];
+                }
+            }
+
+            character.LowerHealth(atk.Damage);
+            this.RemoveAttack(atk);
+
         }
     }
 }

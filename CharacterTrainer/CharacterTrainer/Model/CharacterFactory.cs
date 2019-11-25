@@ -8,5 +8,21 @@ namespace CharacterTrainer.Model
 {
     class CharacterFactory
     {
+
+        private ICharacter newCharacter;
+        private List<ICharacter> enemies;
+        private List<IConsumable> items;
+        private List<Attack> attacks;
+
+        public CharacterFactory()
+        {
+
+        }
+
+
+
     }
+
+     
+
 }
