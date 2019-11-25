@@ -80,6 +80,7 @@ namespace CharacterTrainer.Model
             }
 
             character.LowerHealth(atk.Damage);
+            this.energy = this.energy - atk.Cost;
             this.RemoveAttack(atk);
 
         }

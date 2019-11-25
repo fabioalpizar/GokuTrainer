@@ -8,6 +8,9 @@ namespace CharacterTrainer.Model.Loader
 {
     class EnemyJSON : ILoader
     {
+
+        public EnemyJSON() { }
+
         public object Load(string file)
         {
             throw new NotImplementedException();

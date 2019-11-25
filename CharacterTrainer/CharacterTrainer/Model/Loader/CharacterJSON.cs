@@ -8,6 +8,9 @@ namespace CharacterTrainer.Model.Loader
 {
     class CharacterJSON : ILoader
     {
+
+        public CharacterJSON() { }
+
         public object Load(string file)
         {
             throw new NotImplementedException();

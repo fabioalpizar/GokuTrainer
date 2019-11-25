@@ -4,8 +4,6 @@
         {
             "name": "onion",
             "type": "food",
-            "energy": 10,
-            "health": 10,
             "hunger": 30,
             "thirst": 10,
             "imgPaths": "CharacterTrainer/Resources/images/items/onion.png"
@@ -13,9 +11,7 @@
         {
             "name": "carrot",
             "type": "food",
-            "energy": 10,
-            "health": 10,
-            "hunger": 30,
+            "hunger": 40,
             "thirst": 10,
             "imgPaths": "CharacterTrainer/Resources/images/items/carrot.png"
         },
@@ -40,17 +36,13 @@
         {
             "name": "watermelon",
             "type": "food",
-            "energy": 30,
-            "health": 10,
             "hunger": 20,
-            "thirst": 80,
+            "thirst": 90,
             "imgPaths": "CharacterTrainer/Resources/images/items/watermelon.png"
         },
         {
             "name": "mushroom",
             "type": "food",
-            "energy": 20,
-            "health": 20,
             "hunger": 50,
             "thirst": 20,
             "imgPaths": "CharacterTrainer/Resources/images/items/mushroom.png"
