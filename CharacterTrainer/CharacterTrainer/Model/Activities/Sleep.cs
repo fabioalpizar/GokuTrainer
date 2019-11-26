@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Rooms
 {
-    class Sleep : IStrategy
+    class Sleep : IActivity
     {
+        private string name = "sleep";
+        private int duration = 3000;
+
+        public int Duration { get => duration; set => duration = value; }
+        public string Name { get => name; set => name = value; }
+
         public ICharacter ExecuteStrat(ICharacter character)
         {
             Character updatedChar = ((Character)character);

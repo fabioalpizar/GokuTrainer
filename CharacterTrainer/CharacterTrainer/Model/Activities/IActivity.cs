@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Activities
 {
-    interface IStrategy
+    interface IActivity : IStrategy
     {
-
-        ICharacter ExecuteStrat(ICharacter character);
+        int Duration { get; set; }
+        string Name { get; set; }
     }
 }

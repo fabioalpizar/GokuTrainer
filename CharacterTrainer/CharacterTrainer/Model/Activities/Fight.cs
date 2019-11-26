@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Rooms
 {
-    class Fight : IStrategy
+    class Fight : IActivity
     {
         private Enemy enemy;
+        private string name = "fight";
+        private int duration;
 
         public Enemy Enemy { get => enemy; set => enemy = value; }
+        public string Name { get => name; set => name = value; }
+        public int Duration { get => duration; set => duration = value; }
 
         public ICharacter ExecuteStrat(ICharacter character)
         {

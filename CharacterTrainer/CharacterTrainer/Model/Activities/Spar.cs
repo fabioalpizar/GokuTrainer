@@ -7,8 +7,13 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Rooms
 {
-    class Spar : IStrategy
+    class Spar : IActivity
     {
+        private string name = "spar";
+        private int duration = 3000;
+
+        public int Duration { get => duration; set => duration = value; }
+        public string Name { get => name; set => name = value; }
 
         public ICharacter ExecuteStrat(ICharacter character)
         {

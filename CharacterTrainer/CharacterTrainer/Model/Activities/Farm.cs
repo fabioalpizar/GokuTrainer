@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Rooms
 {
-    class Farm : IStrategy
+    class Farm : IActivity
     {
 
         private IConsumable item;
+        private string name = "farm";
         private int duration = 3000;
 
         public IConsumable Item { get => item; set => item = value; }
         public int Duration { get => duration; set => duration = value; }
+        public string Name { get => name; set => name = value; }
 
         public ICharacter ExecuteStrat(ICharacter character)
         {

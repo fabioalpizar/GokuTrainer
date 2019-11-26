@@ -14,7 +14,7 @@ namespace CharacterTrainer.Model.CharacterApi.Conditions
             throw new NotImplementedException();
         }
 
-        ICharacter IStrategy.ExecuteStrat(ICharacter character)
+        public ICharacter ExecuteStrat(ICharacter character)
         {
             throw new NotImplementedException();
         }

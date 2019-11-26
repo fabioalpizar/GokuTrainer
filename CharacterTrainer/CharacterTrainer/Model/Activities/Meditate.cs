@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Rooms
 {
-    class Meditate : IStrategy
+    class Meditate : IActivity
     {
+        private string name = "meditate";
         private int duration = 3000;
+
         public int Duration { get => duration; set => duration = value; }
+        public string Name { get => name; set => name = value; }
 
         public ICharacter ExecuteStrat(ICharacter character)
         {
