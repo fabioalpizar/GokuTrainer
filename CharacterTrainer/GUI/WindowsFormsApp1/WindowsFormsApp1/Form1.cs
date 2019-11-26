@@ -161,6 +161,11 @@ namespace WindowsFormsApp1
                     pictureBox9.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/activites/goFarm.png");
                     setStateString("Recolectando frutos");
                     break;
+                case "kill":
+                    // pelea
+                    pictureBox9.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/activites/kill.png");
+                    setStateString("Muerto");
+                    break;
             }
         }
 
@@ -248,5 +253,43 @@ namespace WindowsFormsApp1
             pictureBox17.Location = new Point(450, 10);
             setState("cure");
         }
+
+        private void setAge(int age)
+        {
+            label3.Text = "Age: " + age;
+        }
+        private void setAgeApariencia(int age)
+        {
+            if(age<= 0 && age >= 12)
+            {
+                pictureBox17.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/goku/sprite.png");
+            }
+            if (age <= 13 && age >= 18)
+            {
+                pictureBox17.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/goku/goku1.png");
+            }
+            if (age <= 19 && age >= 30)
+            {
+                pictureBox17.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/goku/goku2.png");
+            }
+            if (age <= 31 && age >= 50)
+            {
+                pictureBox17.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/goku/goku3.png");
+            }
+            if (age <= 51 && age >= 90)
+            {
+                pictureBox17.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/goku/goku4.png");
+            }
+            if (age >= 91)
+            {
+                pictureBox17.Image = Image.FromFile("C:/Users/curso/source/repos/WindowsFormsApp1/WindowsFormsApp1/Resources/images/goku/goku5.png");
+            }
+        }
+
+        private void setRecomendacion(String data)
+        {
+            label14.Text = "Recomendacion:" + data;
+        }
+
     }
 }
