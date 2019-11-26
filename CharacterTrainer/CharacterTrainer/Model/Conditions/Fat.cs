@@ -9,14 +9,28 @@ namespace CharacterTrainer.Model.CharacterApi.Conditions
 {
     class Fat : ICondition
     {
+        private string name = "fat";
+
+        public string Name { get => name; set => name = value; }
+
         public bool Cured(Character character)
         {
-            throw new NotImplementedException();
+            if (character.Hunger < 100 && character.Thirst < 100)
+            {
+                return true;
+            }
+            return false;
         }
 
         public ICharacter ExecuteStrat(ICharacter character)
         {
-            throw new NotImplementedException();
+            Character updatedChar = (Character)character;
+            updatedChar.Condition = "fat";
+            updatedChar.Speed = 1;
+            updatedChar.Hp -= 10;
+            updatedChar.Happiness -= 10;
+            updatedChar.Energy -= 10;
+            return updatedChar;
         }
     }
 }

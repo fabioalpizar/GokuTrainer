@@ -49,12 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Controller.cs" />
     <Compile Include="Model\Activities\ActivityController.cs" />
     <Compile Include="Model\Activities\Farm.cs" />
     <Compile Include="Model\Activities\IActivity.cs" />
     <Compile Include="Model\Activities\Pee.cs" />
     <Compile Include="Model\CharacterApi\Attack.cs" />
     <Compile Include="Model\CharacterApi\CharacterFactory.cs" />
+    <Compile Include="Model\Conditions\ConditionController.cs" />
     <Compile Include="Model\IStrategy.cs" />
     <Compile Include="Model\CharacterApi\Character.cs" />
     <Compile Include="Model\Conditions\Beatup.cs" />
@@ -116,7 +118,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

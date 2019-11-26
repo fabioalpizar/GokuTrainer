@@ -10,5 +10,6 @@ namespace CharacterTrainer.Model
     interface ICondition : IStrategy
     {
         Boolean Cured(Character character);
+        string Name { get; set; }
     }
 }
