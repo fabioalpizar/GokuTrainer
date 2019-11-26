@@ -10,9 +10,15 @@ namespace CharacterTrainer.Model.Rooms
     class Spar : IStrategy
     {
 
-        public void ExecuteStrat(ICharacter character)
+        public ICharacter ExecuteStrat(ICharacter character)
         {
-            throw new NotImplementedException();
+            Character updatedChar = ((Character)character);
+            updatedChar.Energy -= 20;
+            updatedChar.Hp -= 10;
+            updatedChar.Thirst -= 20;
+            updatedChar.Hunger -= 20;
+            updatedChar.Happiness += 10;
+            return updatedChar;
         }
     }
 }

@@ -9,9 +9,16 @@ namespace CharacterTrainer.Model.Rooms
 {
     class Friends : IStrategy
     {
-        public void ExecuteStrat(ICharacter character)
+
+        private int duration = 3000;
+        public int Duration { get => duration; set => duration = value; }
+
+        public ICharacter ExecuteStrat(ICharacter character)
         {
-            throw new NotImplementedException();
+            Character updatedChar = ((Character)character);
+            updatedChar.Happiness += 20;
+            updatedChar.Energy -= 20;
+            return updatedChar;
         }
     }
 }

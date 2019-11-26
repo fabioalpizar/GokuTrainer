@@ -9,9 +9,14 @@ namespace CharacterTrainer.Model.Rooms
 {
     class Run : IStrategy
     {
-        public void ExecuteStrat(ICharacter character)
+        public ICharacter ExecuteStrat(ICharacter character)
         {
-            throw new NotImplementedException();
+            Character updatedChar = ((Character)character);
+            updatedChar.Energy -= 20;
+            updatedChar.Thirst -= 20;
+            updatedChar.Hunger -= 20;
+            updatedChar.Happiness += 10;
+            return updatedChar;
         }
     }
 }

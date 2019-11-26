@@ -20,10 +20,6 @@ namespace CharacterTrainer
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            FileLoader fileLoader = new FileLoader();
-
-            Character newCharacter = (Character)fileLoader.loadJSON("char");
-
         }
     }
 }

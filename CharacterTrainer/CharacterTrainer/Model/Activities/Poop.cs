@@ -9,9 +9,11 @@ namespace CharacterTrainer.Model.Rooms
 {
     class Poop : IStrategy
     {
-        public void ExecuteStrat(ICharacter character)
+        public ICharacter ExecuteStrat(ICharacter character)
         {
-            throw new NotImplementedException();
+            Character updatedChar = ((Character)character);
+            updatedChar.Hunger -= 30;
+            return updatedChar;
         }
     }
 }

@@ -49,34 +49,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Activities\Farm.cs" />
     <Compile Include="Model\Activities\Pee.cs" />
-    <Compile Include="Model\Attack.cs" />
-    <Compile Include="Model\CharacterFactory.cs" />
+    <Compile Include="Model\CharacterApi\Attack.cs" />
+    <Compile Include="Model\CharacterApi\CharacterFactory.cs" />
     <Compile Include="Model\IStrategy.cs" />
-    <Compile Include="Model\Character.cs" />
-    <Compile Include="Model\Enemy.cs" />
-    <Compile Include="Model\Consumables\Food.cs" />
+    <Compile Include="Model\CharacterApi\Character.cs" />
+    <Compile Include="Model\Conditions\Beatup.cs" />
+    <Compile Include="Model\Conditions\Fat.cs" />
+    <Compile Include="Model\Conditions\Sick.cs" />
+    <Compile Include="Model\Conditions\Tired.cs" />
+    <Compile Include="Model\CharacterApi\Enemy.cs" />
+    <Compile Include="Model\CharacterApi\Consumables\Food.cs" />
     <Compile Include="Model\Game\GameLogic.cs" />
     <Compile Include="Model\Game\GameTime.cs" />
-    <Compile Include="Model\ICharacter.cs" />
-    <Compile Include="Model\Consumables\IConsumable.cs" />
+    <Compile Include="Model\CharacterApi\ICharacter.cs" />
+    <Compile Include="Model\CharacterApi\Consumables\IConsumable.cs" />
     <Compile Include="Model\Activities\Poop.cs" />
     <Compile Include="Model\Activities\Sleep.cs" />
     <Compile Include="Model\Activities\Fight.cs" />
     <Compile Include="Model\Activities\Spar.cs" />
-    <Compile Include="Model\Consumables\Medicine.cs" />
+    <Compile Include="Model\CharacterApi\Consumables\Medicine.cs" />
     <Compile Include="Model\Activities\Consume.cs" />
     <Compile Include="Model\Activities\Meditate.cs" />
     <Compile Include="Model\Activities\Run.cs" />
     <Compile Include="Model\Activities\Walk.cs" />
     <Compile Include="Model\Activities\Friends.cs" />
-    <Compile Include="Model\Condition.cs" />
-    <Compile Include="Model\Loader\AttackJSON.cs" />
-    <Compile Include="Model\Loader\CharacterJSON.cs" />
-    <Compile Include="Model\Loader\EnemyJSON.cs" />
-    <Compile Include="Model\Loader\FileLoader.cs" />
-    <Compile Include="Model\Loader\ILoader.cs" />
-    <Compile Include="Model\Loader\ItemJSON.cs" />
+    <Compile Include="Model\Conditions\ICondition.cs" />
+    <Compile Include="Model\CharacterApi\Loader\AttackJSON.cs" />
+    <Compile Include="Model\CharacterApi\Loader\CharacterJSON.cs" />
+    <Compile Include="Model\CharacterApi\Loader\EnemyJSON.cs" />
+    <Compile Include="Model\CharacterApi\Loader\FileLoader.cs" />
+    <Compile Include="Model\CharacterApi\Loader\ILoader.cs" />
+    <Compile Include="Model\CharacterApi\Loader\ItemJSON.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

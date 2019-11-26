@@ -1,25 +1,22 @@
-﻿using CharacterTrainer.Model.Activities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CharacterTrainer.Model.Activities;
 
-namespace CharacterTrainer.Model
+namespace CharacterTrainer.Model.CharacterApi.Conditions
 {
-    class Condition : IStrategy
+    class Tired : ICondition
     {
-        private string Name;
-
-        public void ExecuteStrat(ICharacter character)
+        public bool Cured(Character character)
         {
             throw new NotImplementedException();
         }
 
-        public Boolean Cured()
+        ICharacter IStrategy.ExecuteStrat(ICharacter character)
         {
             throw new NotImplementedException();
         }
-
     }
 }

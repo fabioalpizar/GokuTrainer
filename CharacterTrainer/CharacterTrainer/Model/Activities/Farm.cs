@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model.Rooms
 {
-    class Consume : IStrategy
+    class Farm : IStrategy
     {
 
         private IConsumable item;
@@ -18,17 +18,9 @@ namespace CharacterTrainer.Model.Rooms
 
         public ICharacter ExecuteStrat(ICharacter character)
         {
-            if (this.item.Points.Count < 3)
-            {
-                Food f = (Food)this.item;
-                Character updatedChar = (Character)f.Consume(character);
-            }
-            else
-            {
-                Medicine m = (Medicine)this.item;
-                Character updatedChar = (Character)m.Consume(character);
-            }
-            return character;
+            Character updatedChar = ((Character)character);
+            updatedChar.AddItem(this.item);
+            return updatedChar;
         }
     }
 }

@@ -62,15 +62,9 @@ namespace CharacterTrainer.Model
             }
         }
 
-        public void AddItem(string item, List<IConsumable> itemList)
+        public void AddItem(IConsumable item)
         {
-            for (int i = 0; i < itemList.Count; i++)
-            {
-                if (itemList[i].Name.Equals(item))
-                {
-                    this.Items.Add(itemList[i]);
-                }
-            }
+            this.Items.Add(item);
         }
 
         public void LowerHealth(int damage)
@@ -83,21 +77,13 @@ namespace CharacterTrainer.Model
             this.Attacks.Remove(atk);
         }
 
-        public void UseAttack(string attack, ICharacter character)
+        public void UseAttack(ICharacter character)
         {
-            Attack atk = null;
-            for (int i = 0; i < this.Attacks.Count(); i++)
-            {
-                if (this.Attacks[i].Name.Equals(attack))
-                {
-                    atk = Attacks[i];
-                }
-            }
-
+            var rand = new Random();
+            int i = rand.Next(this.attacks.Count);
+            Attack atk = this.attacks[i];
             character.LowerHealth(atk.Damage);
-            this.Energy = this.Energy - atk.Cost;
             this.RemoveAttack(atk);
-
         }
     }
 }

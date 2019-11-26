@@ -8,6 +8,6 @@ namespace CharacterTrainer.Model.Activities
 {
     interface IStrategy
     {
-        void ExecuteStrat(ICharacter character);
+        ICharacter ExecuteStrat(ICharacter character);
     }
 }

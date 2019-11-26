@@ -8,9 +8,11 @@ namespace CharacterTrainer.Model.Activities
 {
     class Pee : IStrategy
     {
-        public void ExecuteStrat(ICharacter character)
+        public ICharacter ExecuteStrat(ICharacter character)
         {
-            throw new NotImplementedException();
+            Character updatedChar = ((Character)character);
+            updatedChar.Thirst -= 30;
+            return updatedChar;
         }
     }
 }
