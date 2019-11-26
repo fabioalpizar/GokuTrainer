@@ -67,6 +67,17 @@ namespace CharacterTrainer.Model
             this.Items.Add(item);
         }
 
+        public void AddItem(string item, List<IConsumable> itemList)
+        {
+            for (int i = 0; i < itemList.Count; i++)
+            {
+                if (itemList[i].Name.Equals(item))
+                {
+                    this.Items.Add(itemList[i]);
+                }
+            }
+        }
+
         public void LowerHealth(int damage)
         {
             this.Hp = this.Hp - damage;
