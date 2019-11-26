@@ -23,6 +23,26 @@ namespace CharacterTrainer.Model
         public List<Attack> Attacks { get; set; }
         public List<string> Images { get; set; }
 
+        public Enemy(string _name, int _level, int _hp, int _energy, List<string> _images)
+        {
+            this.name = _name;
+            this.level = _level;
+            this.hp = _hp;
+            this.energy = _energy;
+            this.images = _images;
+        }
+
+        public void AddAttack(string attack, List<Attack> attackList)
+        {
+            for (int i = 0; i < attackList.Count; i++)
+            {
+                if (attackList[i].Name.Equals(attack))
+                {
+                    this.attacks.Add(attackList[i]);
+                }
+            }
+        }
+
         public void LowerHealth(int damage)
         {
             this.hp = this.hp - damage;

@@ -14,7 +14,7 @@ namespace CharacterTrainer.Model.Loader
         public ItemJSON itemJSON { get; set; }
         public EnemyJSON enmyJSON { get; set; }
 
-        FileLoader()
+        public FileLoader()
         {
             this.atkJSON = new AttackJSON();
             this.charJSON = new CharacterJSON();
@@ -23,18 +23,18 @@ namespace CharacterTrainer.Model.Loader
         }
 
 
-        public object loadJSON(string type, string path)
+        public object loadJSON(string type)
         {
             switch (type)
             {
                 case "atk":
-                    return this.atkJSON.Load(path);
+                    return this.atkJSON.Load(@"Resources\jsons\attacks.json");
                 case "char":
-                    return this.charJSON.Load(path);
+                    return this.charJSON.Load(@"Resources\jsons\new.json");
                 case "enmy":
-                    return this.enmyJSON.Load(path);
+                    return this.enmyJSON.Load(@"Resources\jsons\enemies.json");
                 case "item":
-                    return this.itemJSON.Load(path);
+                    return this.itemJSON.Load(@"Resources\jsons\items.json");
                 default:
                     Console.WriteLine("ERROR: object type not defined, could not load JSON properly");
                     return null;

@@ -11,6 +11,7 @@ namespace CharacterTrainer.Model
 
         void LowerHealth(int damage);
         void UseAttack(string attack, ICharacter character);
+        void AddAttack(string attack, List<Attack> attackList);
         void RemoveAttack(Attack atk);
 
     }

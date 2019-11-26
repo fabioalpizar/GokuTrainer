@@ -14,19 +14,18 @@ namespace CharacterTrainer.Model
         private int cost;
         private string image;
 
-        public string Name { get; set; }
-        public int Damage { get; set; }
-        public int Cost { get; set; }
-        public string Image { get; set; }
 
         public Attack(string _name, int _damage, int _cost, string _image)
         {
-            this.name = _name;
-            this.damage = _damage;
-            this.cost = _cost;
-            this.image = _image;
+            this.Name = _name;
+            this.Damage = _damage;
+            this.Cost = _cost;
+            this.Image = _image;
         }
 
-
+        public string Name { get => name; set => name = value; }
+        public int Damage { get => damage; set => damage = value; }
+        public int Cost { get => cost; set => cost = value; }
+        public string Image { get => image; set => image = value; }
     }
 }

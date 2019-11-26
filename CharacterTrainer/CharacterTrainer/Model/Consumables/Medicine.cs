@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 
 namespace CharacterTrainer.Model
 {
-    class Medicine : IMedicine
+    class Medicine : IConsumable
     {
         private string name;
         private List<int> points;
         private string image;
 
-        public string Name { get; set; }
-        public List<int> Points { get; set; }
-        public int Image { get; set; }
-
-        public Food(string _name, List<int> _points, string _image)
+        public Medicine(string _name, List<int> _points, string _image)
         {
-            this.name = _name;
-            this.points = _points;
-            this.image = _image;
+            this.Name = _name;
+            this.Points = _points;
+            this.Image = _image;
         }
+
+        public string Name { get => name; set => name = value; }
+        public List<int> Points { get => points; set => points = value; }
+        public string Image { get => image; set => image = value; }
 
         void IConsumable.Consume(ICharacter character)
         {
             throw new NotImplementedException();
         }
+
     }
 }

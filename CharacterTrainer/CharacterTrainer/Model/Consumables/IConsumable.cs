@@ -9,5 +9,8 @@ namespace CharacterTrainer.Model
     interface IConsumable
     {
         void Consume(ICharacter character);
+        string Name { get; set; }
+        List<int> Points { get; set; }
+        string Image { get; set; }
     }
 }

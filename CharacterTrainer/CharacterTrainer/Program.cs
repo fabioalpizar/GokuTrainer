@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CharacterTrainer.Model;
+using CharacterTrainer.Model.Loader;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +19,11 @@ namespace CharacterTrainer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            FileLoader fileLoader = new FileLoader();
+
+            Character newCharacter = (Character)fileLoader.loadJSON("char");
+
         }
     }
 }
