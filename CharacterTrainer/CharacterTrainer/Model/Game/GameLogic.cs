@@ -82,14 +82,17 @@ namespace CharacterTrainer.Model
             if (Time.GetCurrentTime() == AttackTime1)
             {
                 CurrentActivity = new Fight();
+                IsRandomActivity = true;
             }
             if (Time.GetCurrentTime() == AttackTime2)
             {
                 CurrentActivity = new Fight();
+                IsRandomActivity = true;
             }
             if (Time.GetCurrentTime() == SocializeTime)
             {
                 CurrentActivity = new Friends();
+                IsRandomActivity = true;
             }
         }
 
