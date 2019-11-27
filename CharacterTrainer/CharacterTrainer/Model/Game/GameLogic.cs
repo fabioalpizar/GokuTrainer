@@ -21,7 +21,7 @@ namespace CharacterTrainer.Model
         private ConditionController ConditionController { get; set; }
         private ActivityController ActivityController { get; set; }
         private bool Running { get; set; }
-        private IStrategy CurrentActivity { get; set; }
+        private IActivity CurrentActivity { get; set; }
         private ICondition CurrentCondition { get; set; }
         private int ConditionCounter { get; set; }
         private int AttackTime1 { get; set; }
@@ -66,11 +66,15 @@ namespace CharacterTrainer.Model
                 {
                     Console.WriteLine("Random Event");
                     CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
+                    Time.WaitActivity(CurrentActivity.Duration);
+                    Thread.Sleep(CurrentActivity.Duration);
                 } else
                 {
                     Console.WriteLine("Normal Event");
                     CurrentActivity = ActivityController.findActivity(Controller.GetActivity());
                     CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
+                    Time.WaitActivity(CurrentActivity.Duration);
+                    Thread.Sleep(CurrentActivity.Duration);
                 }
                 Thread.Sleep(1000);
                 Time.incrementTime();
@@ -149,10 +153,23 @@ namespace CharacterTrainer.Model
         public void NewDay()
         {
             Random rnd = new Random();
-            AttackTime1 = rnd.Next(Time.GetTime());
-            AttackTime2 = rnd.Next(Time.GetTime());
-            SocializeTime = rnd.Next(Time.GetTime());
-            CurrentActivity = new Walk();
+            int rand1 = rnd.Next(1);
+            int rand2 = rnd.Next(1);
+            int rand3 = rnd.Next(1);
+            if (rand1 == 0)
+            {
+                AttackTime1 = rnd.Next(Time.GetTime());
+            }
+            if (rand2 == 0)
+            {
+                AttackTime2 = rnd.Next(Time.GetTime());
+            }
+            if (rand3 == 0)
+            {
+                SocializeTime = rnd.Next(Time.GetTime());
+            }
+            CurrentActivity = ActivityController.findActivity("Walk");
+            IsRandomActivity = false;
             CheckStats();
         }
 

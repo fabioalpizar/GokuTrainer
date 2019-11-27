@@ -54,20 +54,25 @@ namespace CharacterTrainer.Model
             return false;
         }
 
-        internal void incrementTime()
+        public void incrementTime()
         {
             TimeCounter++;
         }
 
         public bool IsNewDay()
         {
-            if (TimeCounter == Time)
+            if (TimeCounter >= Time)
             {
                 DayCounter++;
                 TimeCounter = 0;
                 return true;
             }
             return false;
+        }
+
+        public void WaitActivity(int duration)
+        {
+            TimeCounter = TimeCounter + (duration/1000);
         }
     }
 }

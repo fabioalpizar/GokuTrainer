@@ -20,7 +20,7 @@ namespace CharacterTrainer
         public Form1()
         {
             InitializeComponent();
-            new GameLogic(3, 12);
+            new GameLogic(20, 12);
             gokuSprite = Image.FromFile(@"Resources\images\goku\sprite.png");
         }
 
