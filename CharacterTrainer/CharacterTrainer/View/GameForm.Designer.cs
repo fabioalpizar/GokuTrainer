@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace CharacterTrainer
 {
-    partial class Form1
+    partial class GameForm
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -31,7 +31,7 @@ namespace CharacterTrainer
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.bgImage = new System.Windows.Forms.PictureBox();
             this.houseImage = new System.Windows.Forms.PictureBox();
             this.kitchenImage = new System.Windows.Forms.PictureBox();
@@ -95,6 +95,7 @@ namespace CharacterTrainer
             // 
             this.richTextBox1.Location = new System.Drawing.Point(622, 500);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(291, 141);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
@@ -139,7 +140,7 @@ namespace CharacterTrainer
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
-            // Form1
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,7 +154,7 @@ namespace CharacterTrainer
             this.Controls.Add(this.kitchenImage);
             this.Controls.Add(this.houseImage);
             this.Controls.Add(this.bgImage);
-            this.Name = "Form1";
+            this.Name = "GameForm";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.bgImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.houseImage)).EndInit();
