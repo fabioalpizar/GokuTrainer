@@ -10,6 +10,7 @@ namespace CharacterTrainer.Model.Rooms
     class Fight : IActivity
     {
         private Enemy enemy;
+        private CharacterFactory enemyFactory = new CharacterFactory();
         private string name = "fight";
         private int duration;
 
@@ -27,6 +28,8 @@ namespace CharacterTrainer.Model.Rooms
         {
             while (battleEnd(character))
             {
+                int charLevel = ((Character)character).Level;
+                this.enemy = enemyFactory.getEnemy(charLevel);
                 character.UseAttack(this.enemy);
                 this.enemy.UseAttack(character);
                 System.Threading.Thread.Sleep(3000);

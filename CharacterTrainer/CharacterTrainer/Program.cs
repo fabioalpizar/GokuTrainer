@@ -1,4 +1,5 @@
-﻿using CharacterTrainer.Model;
+﻿using CharacterTrainer.Controller;
+using CharacterTrainer.Model;
 using CharacterTrainer.Model.Loader;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace CharacterTrainer
         [STAThread]
         static void Main()
         {
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameForm());
-
+            ViewController v = new ViewController();
+            Application.Run(v.GameForm);
+            //new GameLogic(3, 12);
         }
 
         
