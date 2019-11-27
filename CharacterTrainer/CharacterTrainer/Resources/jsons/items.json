@@ -4,77 +4,47 @@
         {
             "name": "onion",
             "type": "food",
-            "points":
-            [
-                {
-                    "hunger": 30,
-                    "thirst": 10
-                }
-            ],
+            "hunger": 30,
+            "thirst": 10,
             "imgPaths": "CharacterTrainer/Resources/images/items/onion.png"
         },
         {
             "name": "carrot",
             "type": "food",
-            "points":
-            [
-                {
-                    "hunger": 40,
-                    "thirst": 10
-                }
-            ],
+            "hunger": 40,
+            "thirst": 10,
             "imgPaths": "CharacterTrainer/Resources/images/items/carrot.png"
         },
         {
             "name": "sensu",
             "type": "medecine",
-            "points":
-            [
-                {
-                    "energy": 1000,
-                    "health": 1000,
-                    "hunger": 1000,
-                    "thirst": 1000
-                }
-            ],
+            "energy": 1000,
+            "health": 1000,
+            "hunger": 1000,
+            "thirst": 1000,
             "imgPaths": "CharacterTrainer/Resources/images/items/sensu.png"
         },
         {
             "name": "4star",
             "type": "medecine",
-            "points":
-            [
-                {
-                    "energy": 1000,
-                    "health": 1000,
-                    "hunger": 1000,
-                    "thirst": 1000
-                }
-            ],
+            "energy": 1000,
+            "health": 1000,
+            "hunger": 1000,
+            "thirst": 1000,
             "imgPaths": "CharacterTrainer/Resources/images/items/4star.png"
         },
         {
             "name": "watermelon",
             "type": "food",
-            "points":
-            [
-                {
-                    "hunger": 20,
-                    "thirst": 90
-                }
-            ],
+            "hunger": 20,
+            "thirst": 90,
             "imgPaths": "CharacterTrainer/Resources/images/items/watermelon.png"
         },
         {
             "name": "mushroom",
             "type": "food",
-            "points":
-            [
-                {
-                    "hunger": 50,
-                    "thirst": 20
-                }
-            ],
+            "hunger": 50,
+            "thirst": 20,
             "imgPaths": "CharacterTrainer/Resources/images/items/mushroom.png"
         }
     ]   
