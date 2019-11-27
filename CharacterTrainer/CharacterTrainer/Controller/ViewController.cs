@@ -4,19 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CharacterTrainer.Model.Activities;
+using CharacterTrainer.Model.Rooms;
 
 namespace CharacterTrainer.Controller
 {
     class ViewController
     {
-        public IStrategy GetActivity()
+
+        public ViewController()
         {
-            throw new NotImplementedException();
+
+        }
+
+        public string GetActivity()
+        {
+            return "walk";
         }
 
         public void Finish()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("El programa termino");
         }
     }
 }

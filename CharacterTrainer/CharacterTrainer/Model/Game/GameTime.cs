@@ -56,7 +56,7 @@ namespace CharacterTrainer.Model
 
         internal void incrementTime()
         {
-            Time++;
+            TimeCounter++;
         }
 
         public bool IsNewDay()
@@ -64,7 +64,7 @@ namespace CharacterTrainer.Model
             if (TimeCounter == Time)
             {
                 DayCounter++;
-                Time = 0;
+                TimeCounter = 0;
                 return true;
             }
             return false;

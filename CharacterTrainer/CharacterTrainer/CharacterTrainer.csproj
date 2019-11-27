@@ -134,12 +134,59 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\jsons\attacks.json" />
+    <None Include="Resources\jsons\enemies.json" />
+    <None Include="Resources\jsons\items.json" />
+    <None Include="Resources\jsons\new.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Content Include="Resources\images\activites\cure.jpg" />
+    <Content Include="Resources\images\activites\eat.gif" />
+    <Content Include="Resources\images\activites\family.jpg" />
+    <Content Include="Resources\images\activites\friends.png" />
+    <Content Include="Resources\images\activites\meditate.png" />
+    <Content Include="Resources\images\activites\pushups.gif" />
+    <Content Include="Resources\images\activites\run.gif" />
+    <Content Include="Resources\images\activites\sleep.gif" />
+    <Content Include="Resources\images\activites\spar.gif" />
+    <Content Include="Resources\images\activites\toilet.jpg" />
+    <Content Include="Resources\images\activites\train.gif" />
+    <Content Include="Resources\images\bg\battle.png" />
+    <Content Include="Resources\images\bg\farm.png" />
+    <Content Include="Resources\images\bg\gym.png" />
+    <Content Include="Resources\images\bg\house.png" />
+    <Content Include="Resources\images\bg\kitchen.png" />
+    <Content Include="Resources\images\bg\meditate.png" />
+    <Content Include="Resources\images\bg\run.png" />
+    <Content Include="Resources\images\bg\toilet.png" />
+    <Content Include="Resources\images\enemies\broly.png" />
+    <Content Include="Resources\images\enemies\frieza.png" />
+    <Content Include="Resources\images\enemies\vegeta.png" />
+    <Content Include="Resources\images\goku\goku1.png" />
+    <Content Include="Resources\images\goku\goku2.png" />
+    <Content Include="Resources\images\goku\goku3.png" />
+    <Content Include="Resources\images\goku\goku4.png" />
+    <Content Include="Resources\images\goku\goku5.png" />
+    <Content Include="Resources\images\goku\sprite.png" />
+    <Content Include="Resources\images\items\4star.png" />
+    <Content Include="Resources\images\items\beer.png" />
+    <Content Include="Resources\images\items\cake.png" />
+    <Content Include="Resources\images\items\carrot.png" />
+    <Content Include="Resources\images\items\icecream.png" />
+    <Content Include="Resources\images\items\mushroom.png" />
+    <Content Include="Resources\images\items\onion.png" />
+    <Content Include="Resources\images\items\ramen.png" />
+    <Content Include="Resources\images\items\sensu.png" />
+    <Content Include="Resources\images\items\sushi.png" />
+    <Content Include="Resources\images\items\watermelon.png" />
+    <Content Include="Resources\images\sickness\beatup.png" />
+    <Content Include="Resources\images\sickness\fat.png" />
+    <Content Include="Resources\images\sickness\sick.png" />
+    <Content Include="Resources\images\sickness\tired.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

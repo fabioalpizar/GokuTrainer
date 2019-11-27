@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CharacterTrainer.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace CharacterTrainer
         public GameForm()
         {
             InitializeComponent();
+            new GameLogic(3, 12);
             gokuSprite = Image.FromFile(@"Resources\images\goku\sprite.png");
         }
 
