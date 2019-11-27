@@ -27,6 +27,7 @@ namespace CharacterTrainer.Model.CharacterApi.Conditions
         {
             Character updatedChar = (Character)character;
             updatedChar.Condition = "beatup";
+            updatedChar.Speed = 5;
             updatedChar.Hp -= 20;
             updatedChar.Happiness += 10;
             updatedChar.Energy -= 10;

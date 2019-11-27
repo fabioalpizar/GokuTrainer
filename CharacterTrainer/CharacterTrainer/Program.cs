@@ -21,8 +21,12 @@ namespace CharacterTrainer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ViewController v = new ViewController();
+            new GameLogic(20, 3, v);
             Application.Run(v.GameForm);
-            //new GameLogic(3, 12);
+            //new GameLogic(3, 5);
+            //CharacterFactory f = new CharacterFactory();
+            //List<IConsumable> items = f.Items;
+            //Console.WriteLine("" + items[0].Points[0]);
         }
 
         

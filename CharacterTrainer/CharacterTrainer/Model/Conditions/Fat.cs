@@ -26,7 +26,7 @@ namespace CharacterTrainer.Model.CharacterApi.Conditions
         {
             Character updatedChar = (Character)character;
             updatedChar.Condition = "fat";
-            updatedChar.Speed = 1;
+            updatedChar.Speed = 5;
             updatedChar.Hp -= 10;
             updatedChar.Happiness -= 10;
             updatedChar.Energy -= 10;

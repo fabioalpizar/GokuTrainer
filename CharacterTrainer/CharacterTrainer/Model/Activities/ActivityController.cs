@@ -80,6 +80,16 @@ namespace CharacterTrainer.Model.Activities
                     startCurrentAcitity(spar);
                     updatedChar = this.currentActivity.ExecuteStrat(Character);
                     break;
+                case "consume":
+                    Consume c = (Consume)findActivity(activity);
+                    startCurrentAcitity(c);
+                    updatedChar = this.currentActivity.ExecuteStrat(Character);
+                    break;
+                case "farm":
+                    Farm f = (Farm)findActivity(activity);
+                    startCurrentAcitity(f);
+                    updatedChar = this.currentActivity.ExecuteStrat(Character);
+                    break;
                 default:
                     Walk walk = (Walk)findActivity(activity);
                     startCurrentAcitity(walk);
@@ -93,21 +103,10 @@ namespace CharacterTrainer.Model.Activities
         public ICharacter executeActivity(string activity, ICharacter Character, IConsumable item)
         {
             ICharacter updatedChar;
-            switch (activity)
-            {
-                case "consume":
-                    Consume c = (Consume)findActivity(activity);
-                    c.Item = item;
-                    startCurrentAcitity(c);
-                    updatedChar = this.currentActivity.ExecuteStrat(Character);
-                    break;
-                default:
-                    Farm f = (Farm)findActivity(activity);
-                    f.Item = item;
-                    startCurrentAcitity(f);
-                    updatedChar = this.currentActivity.ExecuteStrat(Character);
-                    break;
-            }
+            Consume c = (Consume)findActivity(activity);
+            c.Item = item;
+            startCurrentAcitity(c);
+            updatedChar = this.currentActivity.ExecuteStrat(Character);
             return updatedChar;
         }
 

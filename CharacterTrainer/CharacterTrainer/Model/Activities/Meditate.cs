@@ -11,6 +11,7 @@ namespace CharacterTrainer.Model.Rooms
     {
         private string name = "meditate";
         private int duration = 3000;
+        private CharacterFactory factory = new CharacterFactory();
 
         public int Duration { get => duration; set => duration = value; }
         public string Name { get => name; set => name = value; }
@@ -22,6 +23,7 @@ namespace CharacterTrainer.Model.Rooms
             updatedChar.Energy += 20;
             updatedChar.Hunger -= 10;
             updatedChar.Thirst -= 10;
+            updatedChar.AddAttack(this.factory.getAttack("Kamehameha"));
             return updatedChar;
         }
     }

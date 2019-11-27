@@ -21,6 +21,8 @@ namespace CharacterTrainer.Model.Rooms
             Character updatedChar = ((Character)character);
             updatedChar.Happiness += 20;
             updatedChar.Energy -= 20;
+            updatedChar.Hunger -= 20;
+            updatedChar.Thirst -= 20;
             return updatedChar;
         }
     }

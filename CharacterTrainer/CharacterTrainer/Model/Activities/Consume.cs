@@ -18,19 +18,29 @@ namespace CharacterTrainer.Model.Rooms
         public int Duration { get => duration; set => duration = value; }
         public string Name { get => name; set => name = value; }
 
-        public ICharacter ExecuteStrat(ICharacter character)
+        public ICharacter ExecuteStrat(ICharacter character, IConsumable selectedItem)
         {
+            this.item = selectedItem;
+            Character updatedChar;
             if (this.item.Points.Count < 3)
             {
                 Food f = (Food)this.item;
-                Character updatedChar = (Character)f.Consume(character);
+                updatedChar = (Character)f.Consume(character);
+                updatedChar.RemoveItem(item);
             }
             else
             {
                 Medicine m = (Medicine)this.item;
-                Character updatedChar = (Character)m.Consume(character);
+                updatedChar = (Character)m.Consume(character);
+                updatedChar.RemoveItem(item);
             }
-            return character;
+            updatedChar.RemoveItem(item);
+            return updatedChar;
+        }
+
+        public ICharacter ExecuteStrat(ICharacter character)
+        {
+            throw new NotImplementedException();
         }
     }
 }

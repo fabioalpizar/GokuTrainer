@@ -13,6 +13,7 @@ namespace CharacterTrainer.Model.Rooms
         private IConsumable item;
         private string name = "farm";
         private int duration = 3000;
+        private CharacterFactory factory = new CharacterFactory();
 
         public IConsumable Item { get => item; set => item = value; }
         public int Duration { get => duration; set => duration = value; }
@@ -20,6 +21,7 @@ namespace CharacterTrainer.Model.Rooms
 
         public ICharacter ExecuteStrat(ICharacter character)
         {
+            this.item = factory.getRandomItem();
             Character updatedChar = ((Character)character);
             updatedChar.AddItem(this.item);
             return updatedChar;

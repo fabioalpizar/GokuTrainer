@@ -11,6 +11,7 @@ namespace CharacterTrainer.Model.Rooms
     {
         private string name = "spar";
         private int duration = 3000;
+        private CharacterFactory factory = new CharacterFactory();
 
         public int Duration { get => duration; set => duration = value; }
         public string Name { get => name; set => name = value; }
@@ -23,6 +24,7 @@ namespace CharacterTrainer.Model.Rooms
             updatedChar.Thirst -= 20;
             updatedChar.Hunger -= 20;
             updatedChar.Happiness += 10;
+            updatedChar.AddAttack(this.factory.getAttack("Dragon-Punch"));
             return updatedChar;
         }
     }

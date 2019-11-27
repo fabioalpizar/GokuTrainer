@@ -44,9 +44,10 @@ namespace CharacterTrainer.Model
             }
         }
 
-        public void LowerHealth(int damage)
+        public string LowerHealth(int damage)
         {
             this.Hp = this.Hp - damage;
+            return this.Name + " took " + damage.ToString() + " damage.";
         }
 
         public void RemoveAttack(Attack atk)
@@ -54,13 +55,15 @@ namespace CharacterTrainer.Model
             this.Attacks.Remove(atk);
         }
 
-        public void UseAttack(ICharacter character)
+        public string UseAttack(ICharacter character)
         {
             var rand = new Random();
             int i = rand.Next(this.attacks.Count);
             Attack atk = this.attacks[i];
             character.LowerHealth(atk.Damage);
+            Console.WriteLine(atk.Name + " used.");
             //this.RemoveAttack(atk);
+            return this.Name + " used " + atk.Name;
         }
     }
 }

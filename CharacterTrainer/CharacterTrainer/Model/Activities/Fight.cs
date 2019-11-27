@@ -12,11 +12,13 @@ namespace CharacterTrainer.Model.Rooms
         private Enemy enemy;
         private CharacterFactory enemyFactory = new CharacterFactory();
         private string name = "fight";
-        private int duration;
-        private CharacterFactory enemyFactory = new CharacterFactory();
+        private string log = "";
+        private int duration = 3000;
+
 
         public Enemy Enemy { get => enemy; set => enemy = value; }
         public string Name { get => name; set => name = value; }
+        public string Log { get => log; set => log = value; }
         public int Duration { get => duration; set => duration = value; }
 
         public ICharacter ExecuteStrat(ICharacter character)
@@ -27,15 +29,16 @@ namespace CharacterTrainer.Model.Rooms
 
         private ICharacter battle(ICharacter character)
         {
+            this.log = "";
             int charLevel = ((Character)character).Level;
             this.enemy = enemyFactory.getEnemy(charLevel);
+            Console.WriteLine(this.Enemy.Images[0]);
             while (battleEnd(character))
             {
-                int charLevel = ((Character)character).Level;
-                this.enemy = enemyFactory.getEnemy(charLevel);
-                character.UseAttack(this.enemy);
-                this.enemy.UseAttack(character);
-                System.Threading.Thread.Sleep(3000);
+                string atk1 = character.UseAttack(this.enemy);
+                string atk2 = this.enemy.UseAttack(character);
+                this.log += "\n" + atk1 + "\n" + atk2;
+                System.Threading.Thread.Sleep(1000);
             }
             return character;
         }
@@ -45,11 +48,13 @@ namespace CharacterTrainer.Model.Rooms
             if (this.enemy.Hp < 0 || ((Character)character).Hp < 0)
             {
                 Console.WriteLine(won(character));
+                this.log += "\n" + won(character);
                 return false;
             }
             else if (this.enemy.Energy < 0 || ((Character)character).Energy < 0)
             {
                 Console.WriteLine(won(character));
+                this.log += "\n" + won(character);
                 return false;
             }
             else

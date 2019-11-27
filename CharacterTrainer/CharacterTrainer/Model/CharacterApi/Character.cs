@@ -62,9 +62,25 @@ namespace CharacterTrainer.Model
             }
         }
 
+        public void AddAttack(Attack atk)
+        {
+            this.Attacks.Add(atk);
+        }
+
         public void AddItem(IConsumable item)
         {
-            this.Items.Add(item);
+            this.items.Add(item);
+        }
+
+        public void RemoveItem(IConsumable item)
+        {
+            for (int i = 0; i < this.items.Count; i++)
+            {
+                if (this.items[i].Name.Equals(item.Name))
+                {
+                    this.Items.RemoveAt(i);
+                }
+            }
         }
 
         public void AddItem(string item, List<IConsumable> itemList)
@@ -78,9 +94,10 @@ namespace CharacterTrainer.Model
             }
         }
 
-        public void LowerHealth(int damage)
+        public string LowerHealth(int damage)
         {
             this.Hp = this.Hp - damage;
+            return this.Name + " took " + damage.ToString() + " damage.";
         }
 
         public void RemoveAttack(Attack atk)
@@ -88,14 +105,16 @@ namespace CharacterTrainer.Model
             this.Attacks.Remove(atk);
         }
 
-        public void UseAttack(ICharacter character)
+        public string UseAttack(ICharacter character)
         {
+            string battleData = "";
             var rand = new Random();
             int i = rand.Next(this.attacks.Count);
             Attack atk = this.attacks[i];
-            Console.WriteLine(atk);
-            character.LowerHealth(atk.Damage);
+            battleData += character.LowerHealth(atk.Damage);
+            battleData += "\n" + this.Name + " used " + atk.Name;
             //this.RemoveAttack(atk);
+            return battleData;
         }
 
         public void LevelUp()

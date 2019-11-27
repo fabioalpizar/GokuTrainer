@@ -9,8 +9,8 @@ namespace CharacterTrainer.Model
     interface ICharacter
     {
 
-        void LowerHealth(int damage);
-        void UseAttack(ICharacter character);
+        string LowerHealth(int damage);
+        string UseAttack(ICharacter character);
         void AddAttack(string attack, List<Attack> attackList);
         void RemoveAttack(Attack atk);
 

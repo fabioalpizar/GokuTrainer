@@ -4,10 +4,12 @@ using CharacterTrainer.Model.Conditions;
 using CharacterTrainer.Model.Rooms;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CharacterTrainer.Model
 {
@@ -29,9 +31,9 @@ namespace CharacterTrainer.Model
         private int SocializeTime { get; set; }
         private bool IsRandomActivity { get; set; }
 
-        public GameLogic(int dayDuration, int yearDuration)
+        public GameLogic(int dayDuration, int yearDuration, ViewController viewController)
         {
-            this.Controller = new ViewController();
+            this.Controller = viewController;
             this.ConditionController = new ConditionController();
             this.ActivityController = new ActivityController();
             this.Running = true;
@@ -50,13 +52,14 @@ namespace CharacterTrainer.Model
             NewDay();
             while (Running)
             {
-                Console.WriteLine(Time.GetCurrentTime());
+                this.Controller.updateTime(Time.GetCurrentTime().ToString());
                 if (Time.IsNewDay())
                 {
-                    Console.WriteLine("New day");
+                    this.Controller.updateConsole("--- New day ---");
+                    this.CurrentActivity = ActivityController.findActivity("walk");
                     if (Time.IsNewYear())
                     {
-                        Console.WriteLine("New year");
+                        this.Controller.updateConsole("--- New year ---");
                         NewYear();
                     }
                     NewDay();
@@ -64,20 +67,57 @@ namespace CharacterTrainer.Model
                 CheckRandomEvents();
                 if (IsRandomActivity)
                 {
-                    Console.WriteLine("Random Event");
-                    CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
-                    Time.WaitActivity(CurrentActivity.Duration);
-                    Thread.Sleep(CurrentActivity.Duration);
-                } else
-                {
-                    Console.WriteLine("Normal Event");
+
+                    if (randomEvent())
+                    {
+                        this.Controller.updateConsole("Time: " + Time.GetCurrentTime().ToString() + " Day: " + Time.GetCurrentDay().ToString() + " Year: " + Time.GetCurrentYear().ToString());
+                        this.Controller.updateConsole("Random Event: " + CurrentActivity.Name);
+                        this.Controller.updateActivity(CurrentActivity.Name);
+                        CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
+                        //Console print for fight
+                        if (CurrentActivity.Name.Equals("fight"))
+                        {
+                            this.Controller.updateConsole("Fight log: \n" + ((Fight)CurrentActivity).Log);
+                            this.Controller.Enemy = Image.FromFile(((Fight)CurrentActivity).Enemy.Images[0]);
+                            this.Controller.moveSprite(((Character)this.CurrentCharacter).Speed);
+                            Thread.Sleep(CurrentActivity.Duration);
+                        }
+                        Time.WaitActivity(CurrentActivity.Duration);
+                        Thread.Sleep(CurrentActivity.Duration);
+                        this.Controller.Enemy = null;
+                        this.Controller.CurrentActivity = "walk";
+                    }
+                    
+                } else {
                     CurrentActivity = ActivityController.findActivity(Controller.GetActivity());
-                    CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
+                    if (CurrentActivity.Name.Equals("consume"))
+                    {      
+                        CurrentCharacter = ((Consume)CurrentActivity).ExecuteStrat(CurrentCharacter, this.Factory.getItem(this.Controller.CurrentItem));
+                    } else {
+                        CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
+                    }
+                    if (CurrentActivity.Name.Equals("walk"))
+                    {
+                        this.Controller.moveSprite(((Character)this.CurrentCharacter).Speed);
+                        this.Controller.updateActivity("walk");
+                    }
+                    else
+                    {
+                        this.Controller.updateConsole("Time: " + Time.GetCurrentTime().ToString() + " Day: " + Time.GetCurrentDay().ToString() + " Year: " + Time.GetCurrentYear().ToString());
+                        Console.WriteLine("Normal Event: " + Controller.GetActivity());
+                        this.Controller.updateConsole("Normal Event: " + Controller.GetActivity());
+                    }
                     Time.WaitActivity(CurrentActivity.Duration);
                     Thread.Sleep(CurrentActivity.Duration);
+                    this.Controller.CurrentActivity = "walk";
                 }
                 Thread.Sleep(1000);
                 Time.incrementTime();
+                this.Controller.updateCharInfo((Character)this.CurrentCharacter);
+                if(this.CurrentCondition == null)
+                {
+                    this.Controller.updateOkAppearance(((Character)this.CurrentCharacter).Level);
+                }
             }
         }
 
@@ -88,15 +128,17 @@ namespace CharacterTrainer.Model
                 CurrentActivity = new Fight();
                 IsRandomActivity = true;
             }
-            if (Time.GetCurrentTime() == AttackTime2)
+            else if (Time.GetCurrentTime() == AttackTime2)
             {
                 CurrentActivity = new Fight();
                 IsRandomActivity = true;
             }
-            if (Time.GetCurrentTime() == SocializeTime)
+            else if (Time.GetCurrentTime() == SocializeTime)
             {
                 CurrentActivity = new Friends();
                 IsRandomActivity = true;
+            } else {
+                IsRandomActivity = false;
             }
         }
 
@@ -104,49 +146,62 @@ namespace CharacterTrainer.Model
         {
             if (this.ConditionCounter > 3)
             {
-                Console.WriteLine("Muere");
+                this.Controller.updateConsole("Your Goku died lol.");
                 // El personaje muere
                 Running = false;
                 Controller.Finish(); // Mensaje para el GUI de que murio
             }
             if (CurrentCondition != null)
             {
+                this.Controller.updateConsole("Time: " + Time.GetCurrentTime().ToString() + " Day: " + Time.GetCurrentDay().ToString() + " Year: " + Time.GetCurrentYear().ToString());
+                Console.WriteLine("Random Event: " + CurrentActivity.Name);
                 if (CurrentCondition.Cured((Character)this.CurrentCharacter))
                 {
-                    Console.WriteLine("Curado");
+                    this.Controller.updateConsole("*** Your goku was cured! ***");
                     CurrentCondition = null;
                     ConditionCounter = 0;
                 } else
                 {
-                    Console.WriteLine("Enfermo");
+                    this.Controller.updateConsole("*** Be careful your goku is still sick ***");
                     CurrentCharacter = CurrentCondition.ExecuteStrat(CurrentCharacter);
                     ConditionCounter++;
+                    this.Controller.updateConsole("Sick day coutner: " + this.ConditionCounter.ToString());
                 }
-            } else
-            {
+            } else {
                 ICondition condition = null;
                 Character character = (Character)CurrentCharacter;
-                if (character.Hp < 30 && character.Hunger > 100 && character.Thirst > 100)
+                this.Controller.updateConsole("Time: " + Time.GetCurrentTime().ToString() + " Day: " + Time.GetCurrentDay().ToString() + " Year: " + Time.GetCurrentYear().ToString());
+                Console.WriteLine("Random Event: " + CurrentActivity.Name);
+                if (character.Hp < 30 && character.Hunger < 30 && character.Thirst < 30 && newCondition())
                 {
                     Console.WriteLine("Sick");
+                    this.Controller.updateConditionAppearance("sick");
                     condition = ConditionController.findCondition("sick");
                 }
-                else if (character.Energy < 30 && character.Hunger < 30 && character.Thirst < 30)
+                else if (character.Energy < 30 && newCondition())
                 {
                     Console.WriteLine("Tired");
+                    this.Controller.updateConditionAppearance("tired");
                     condition = ConditionController.findCondition("tired");
                 }
-                else if (character.Hunger > 150 && character.Thirst > 150)
+                else if (character.Hunger > 100 && character.Thirst > 100 && newCondition())
                 {
                     Console.WriteLine("Fat");
+                    this.Controller.updateConditionAppearance("fat");
                     condition = ConditionController.findCondition("fat");
                 }
-                else if (character.Hp < 30 && character.Energy < 30 && character.Hunger < 30 && character.Thirst < 30)
+                else if (character.Hp < 30 && newCondition())
                 {
                     Console.WriteLine("Beatup");
+                    this.Controller.updateConditionAppearance("beatup");
                     condition = ConditionController.findCondition("beatup");
                 }
                 CurrentCondition = condition;
+            }
+            if (this.CurrentCondition != null)
+            {
+                this.Controller.updateConditionAppearance(this.CurrentCondition.Name);
+                this.Controller.updateConsole(((Character)this.CurrentCharacter).Name + " is currently " + this.CurrentCondition.Name);
             }
         }
 
@@ -168,9 +223,10 @@ namespace CharacterTrainer.Model
             {
                 SocializeTime = rnd.Next(Time.GetTime());
             }
-            CurrentActivity = ActivityController.findActivity("Walk");
+            this.Controller.CurrentActivity = "walk";
             IsRandomActivity = false;
             CheckStats();
+            this.Controller.updateDate(this.Time.GetCurrentDay().ToString(), this.Time.GetCurrentYear().ToString());
         }
 
         public void NewYear()
@@ -178,8 +234,41 @@ namespace CharacterTrainer.Model
             Character character = (Character)CurrentCharacter;
             character.LevelUp();
             CurrentCharacter = character;
+            this.Controller.updateDate(this.Time.GetCurrentDay().ToString(), this.Time.GetCurrentYear().ToString());
         }
 
+
+        public Boolean newCondition()
+        {
+            string message = "Do you want to accept the condition?";
+            string title = "New condition";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false; 
+            }
+        }
+
+        public Boolean randomEvent()
+        {
+            string message = "Would you like accept a random event?\nIt could lead to pichazos!";
+            string title = "Random event incoming";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
 }

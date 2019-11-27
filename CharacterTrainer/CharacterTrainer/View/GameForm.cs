@@ -16,11 +16,27 @@ namespace CharacterTrainer
         public GameForm()
         {
             InitializeComponent();
+            if (!this.IsHandleCreated)
+            {
+                this.CreateHandle();
+            }
         }
 
-        private void GymImage_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void DayLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ConditioLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

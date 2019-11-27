@@ -41,7 +41,7 @@ namespace CharacterTrainer
             this.toiletImage = new System.Windows.Forms.PictureBox();
             this.meditateImage = new System.Windows.Forms.PictureBox();
             this.runImage = new System.Windows.Forms.PictureBox();
-            this.conditionImage = new System.Windows.Forms.PictureBox();
+            this.statusImage = new System.Windows.Forms.PictureBox();
             this.bagComboBox = new System.Windows.Forms.ComboBox();
             this.bagButton = new System.Windows.Forms.Button();
             this.itemImage = new System.Windows.Forms.PictureBox();
@@ -56,6 +56,12 @@ namespace CharacterTrainer
             this.conditioLabel = new System.Windows.Forms.Label();
             this.activityLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
+            this.dayLabel = new System.Windows.Forms.Label();
+            this.appearanceImage = new System.Windows.Forms.PictureBox();
+            this.appearanceLabel = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
+            this.labelConsole = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bgImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.houseImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kitchenImage)).BeginInit();
@@ -64,8 +70,9 @@ namespace CharacterTrainer
             ((System.ComponentModel.ISupportInitialize)(this.toiletImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meditateImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conditionImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appearanceImage)).BeginInit();
             this.SuspendLayout();
             // 
             // bgImage
@@ -73,7 +80,7 @@ namespace CharacterTrainer
             this.bgImage.Image = ((System.Drawing.Image)(resources.GetObject("bgImage.Image")));
             this.bgImage.Location = new System.Drawing.Point(0, 0);
             this.bgImage.Name = "bgImage";
-            this.bgImage.Size = new System.Drawing.Size(1207, 494);
+            this.bgImage.Size = new System.Drawing.Size(1207, 490);
             this.bgImage.TabIndex = 0;
             this.bgImage.TabStop = false;
             // 
@@ -109,7 +116,7 @@ namespace CharacterTrainer
             // 
             // consoleTextBox
             // 
-            this.consoleTextBox.Location = new System.Drawing.Point(766, 502);
+            this.consoleTextBox.Location = new System.Drawing.Point(888, 516);
             this.consoleTextBox.Name = "consoleTextBox";
             this.consoleTextBox.ReadOnly = true;
             this.consoleTextBox.Size = new System.Drawing.Size(291, 198);
@@ -125,7 +132,6 @@ namespace CharacterTrainer
             this.gymImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.gymImage.TabIndex = 5;
             this.gymImage.TabStop = false;
-            this.gymImage.Click += new System.EventHandler(this.GymImage_Click);
             // 
             // toiletImage
             // 
@@ -157,26 +163,26 @@ namespace CharacterTrainer
             this.runImage.TabIndex = 8;
             this.runImage.TabStop = false;
             // 
-            // conditionImage
+            // statusImage
             // 
-            this.conditionImage.Location = new System.Drawing.Point(531, 500);
-            this.conditionImage.Name = "conditionImage";
-            this.conditionImage.Size = new System.Drawing.Size(200, 200);
-            this.conditionImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.conditionImage.TabIndex = 9;
-            this.conditionImage.TabStop = false;
+            this.statusImage.Location = new System.Drawing.Point(682, 516);
+            this.statusImage.Name = "statusImage";
+            this.statusImage.Size = new System.Drawing.Size(200, 200);
+            this.statusImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.statusImage.TabIndex = 9;
+            this.statusImage.TabStop = false;
             // 
             // bagComboBox
             // 
             this.bagComboBox.FormattingEnabled = true;
-            this.bagComboBox.Location = new System.Drawing.Point(12, 646);
+            this.bagComboBox.Location = new System.Drawing.Point(8, 660);
             this.bagComboBox.Name = "bagComboBox";
             this.bagComboBox.Size = new System.Drawing.Size(121, 21);
             this.bagComboBox.TabIndex = 10;
             // 
             // bagButton
             // 
-            this.bagButton.Location = new System.Drawing.Point(12, 673);
+            this.bagButton.Location = new System.Drawing.Point(8, 687);
             this.bagButton.Name = "bagButton";
             this.bagButton.Size = new System.Drawing.Size(75, 23);
             this.bagButton.TabIndex = 11;
@@ -185,10 +191,10 @@ namespace CharacterTrainer
             // 
             // itemImage
             // 
-            this.itemImage.Location = new System.Drawing.Point(139, 646);
+            this.itemImage.Location = new System.Drawing.Point(135, 660);
             this.itemImage.Name = "itemImage";
             this.itemImage.Size = new System.Drawing.Size(50, 50);
-            this.itemImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.itemImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.itemImage.TabIndex = 12;
             this.itemImage.TabStop = false;
             // 
@@ -196,7 +202,7 @@ namespace CharacterTrainer
             // 
             this.bagLabel.AutoSize = true;
             this.bagLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bagLabel.Location = new System.Drawing.Point(12, 623);
+            this.bagLabel.Location = new System.Drawing.Point(8, 637);
             this.bagLabel.Name = "bagLabel";
             this.bagLabel.Size = new System.Drawing.Size(42, 20);
             this.bagLabel.TabIndex = 13;
@@ -206,7 +212,7 @@ namespace CharacterTrainer
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(12, 500);
+            this.nameLabel.Location = new System.Drawing.Point(8, 514);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(55, 20);
             this.nameLabel.TabIndex = 14;
@@ -216,7 +222,7 @@ namespace CharacterTrainer
             // 
             this.levelLabel.AutoSize = true;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.levelLabel.Location = new System.Drawing.Point(12, 539);
+            this.levelLabel.Location = new System.Drawing.Point(8, 553);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(50, 20);
             this.levelLabel.TabIndex = 15;
@@ -226,7 +232,7 @@ namespace CharacterTrainer
             // 
             this.hpLabel.AutoSize = true;
             this.hpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hpLabel.Location = new System.Drawing.Point(12, 576);
+            this.hpLabel.Location = new System.Drawing.Point(8, 590);
             this.hpLabel.Name = "hpLabel";
             this.hpLabel.Size = new System.Drawing.Size(34, 20);
             this.hpLabel.TabIndex = 16;
@@ -236,7 +242,7 @@ namespace CharacterTrainer
             // 
             this.happinessLabel.AutoSize = true;
             this.happinessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.happinessLabel.Location = new System.Drawing.Point(190, 500);
+            this.happinessLabel.Location = new System.Drawing.Point(150, 514);
             this.happinessLabel.Name = "happinessLabel";
             this.happinessLabel.Size = new System.Drawing.Size(89, 20);
             this.happinessLabel.TabIndex = 17;
@@ -246,7 +252,7 @@ namespace CharacterTrainer
             // 
             this.energyLabel.AutoSize = true;
             this.energyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.energyLabel.Location = new System.Drawing.Point(354, 500);
+            this.energyLabel.Location = new System.Drawing.Point(308, 516);
             this.energyLabel.Name = "energyLabel";
             this.energyLabel.Size = new System.Drawing.Size(63, 20);
             this.energyLabel.TabIndex = 18;
@@ -256,7 +262,7 @@ namespace CharacterTrainer
             // 
             this.thirstLabel.AutoSize = true;
             this.thirstLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thirstLabel.Location = new System.Drawing.Point(192, 539);
+            this.thirstLabel.Location = new System.Drawing.Point(150, 553);
             this.thirstLabel.Name = "thirstLabel";
             this.thirstLabel.Size = new System.Drawing.Size(52, 20);
             this.thirstLabel.TabIndex = 19;
@@ -266,7 +272,7 @@ namespace CharacterTrainer
             // 
             this.hungerLabel.AutoSize = true;
             this.hungerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hungerLabel.Location = new System.Drawing.Point(192, 576);
+            this.hungerLabel.Location = new System.Drawing.Point(150, 590);
             this.hungerLabel.Name = "hungerLabel";
             this.hungerLabel.Size = new System.Drawing.Size(66, 20);
             this.hungerLabel.TabIndex = 20;
@@ -276,17 +282,18 @@ namespace CharacterTrainer
             // 
             this.conditioLabel.AutoSize = true;
             this.conditioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditioLabel.Location = new System.Drawing.Point(354, 539);
+            this.conditioLabel.Location = new System.Drawing.Point(308, 553);
             this.conditioLabel.Name = "conditioLabel";
-            this.conditioLabel.Size = new System.Drawing.Size(80, 20);
+            this.conditioLabel.Size = new System.Drawing.Size(119, 20);
             this.conditioLabel.TabIndex = 21;
-            this.conditioLabel.Text = "Condition:";
+            this.conditioLabel.Text = "Condition: Fine.";
+            this.conditioLabel.Click += new System.EventHandler(this.ConditioLabel_Click);
             // 
             // activityLabel
             // 
             this.activityLabel.AutoSize = true;
             this.activityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activityLabel.Location = new System.Drawing.Point(354, 576);
+            this.activityLabel.Location = new System.Drawing.Point(308, 590);
             this.activityLabel.Name = "activityLabel";
             this.activityLabel.Size = new System.Drawing.Size(62, 20);
             this.activityLabel.TabIndex = 22;
@@ -294,18 +301,85 @@ namespace CharacterTrainer
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(358, 673);
+            this.exitButton.Location = new System.Drawing.Point(380, 684);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 23;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
             // 
+            // dayLabel
+            // 
+            this.dayLabel.AutoSize = true;
+            this.dayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayLabel.Location = new System.Drawing.Point(198, 658);
+            this.dayLabel.Name = "dayLabel";
+            this.dayLabel.Size = new System.Drawing.Size(141, 20);
+            this.dayLabel.TabIndex = 24;
+            this.dayLabel.Text = "Date: day 1, year 1";
+            this.dayLabel.Click += new System.EventHandler(this.DayLabel_Click);
+            // 
+            // appearanceImage
+            // 
+            this.appearanceImage.Location = new System.Drawing.Point(476, 516);
+            this.appearanceImage.Name = "appearanceImage";
+            this.appearanceImage.Size = new System.Drawing.Size(200, 200);
+            this.appearanceImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.appearanceImage.TabIndex = 25;
+            this.appearanceImage.TabStop = false;
+            // 
+            // appearanceLabel
+            // 
+            this.appearanceLabel.AutoSize = true;
+            this.appearanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appearanceLabel.Location = new System.Drawing.Point(472, 493);
+            this.appearanceLabel.Name = "appearanceLabel";
+            this.appearanceLabel.Size = new System.Drawing.Size(96, 20);
+            this.appearanceLabel.TabIndex = 26;
+            this.appearanceLabel.Text = "Appearance";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusLabel.Location = new System.Drawing.Point(678, 493);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(56, 20);
+            this.statusLabel.TabIndex = 27;
+            this.statusLabel.Text = "Status";
+            // 
+            // labelConsole
+            // 
+            this.labelConsole.AutoSize = true;
+            this.labelConsole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConsole.Location = new System.Drawing.Point(884, 493);
+            this.labelConsole.Name = "labelConsole";
+            this.labelConsole.Size = new System.Drawing.Size(67, 20);
+            this.labelConsole.TabIndex = 28;
+            this.labelConsole.Text = "Console";
+            this.labelConsole.Click += new System.EventHandler(this.Label3_Click);
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Location = new System.Drawing.Point(198, 687);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(47, 20);
+            this.timeLabel.TabIndex = 29;
+            this.timeLabel.Text = "Time:";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 703);
+            this.ClientSize = new System.Drawing.Size(1195, 719);
+            this.Controls.Add(this.timeLabel);
+            this.Controls.Add(this.labelConsole);
+            this.Controls.Add(this.statusLabel);
+            this.Controls.Add(this.appearanceLabel);
+            this.Controls.Add(this.appearanceImage);
+            this.Controls.Add(this.dayLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.activityLabel);
             this.Controls.Add(this.conditioLabel);
@@ -320,7 +394,7 @@ namespace CharacterTrainer
             this.Controls.Add(this.itemImage);
             this.Controls.Add(this.bagButton);
             this.Controls.Add(this.bagComboBox);
-            this.Controls.Add(this.conditionImage);
+            this.Controls.Add(this.statusImage);
             this.Controls.Add(this.runImage);
             this.Controls.Add(this.meditateImage);
             this.Controls.Add(this.toiletImage);
@@ -340,8 +414,9 @@ namespace CharacterTrainer
             ((System.ComponentModel.ISupportInitialize)(this.toiletImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meditateImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.runImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conditionImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.appearanceImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,7 +433,7 @@ namespace CharacterTrainer
         public PictureBox toiletImage;
         public PictureBox meditateImage;
         public PictureBox runImage;
-        public PictureBox conditionImage;
+        public PictureBox statusImage;
         public ComboBox bagComboBox;
         public Button bagButton;
         public PictureBox itemImage;
@@ -373,6 +448,12 @@ namespace CharacterTrainer
         public Label conditioLabel;
         public Label activityLabel;
         public Button exitButton;
+        public Label dayLabel;
+        public PictureBox appearanceImage;
+        public Label appearanceLabel;
+        public Label statusLabel;
+        public Label labelConsole;
+        public Label timeLabel;
     }
 }
 

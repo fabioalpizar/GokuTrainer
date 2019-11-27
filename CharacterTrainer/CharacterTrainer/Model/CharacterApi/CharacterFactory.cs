@@ -47,6 +47,13 @@ namespace CharacterTrainer.Model
             return null;
         }
 
+        public IConsumable getRandomItem()
+        {
+            var rand = new Random();
+            int i = rand.Next(this.items.Count);
+            return this.items[i];
+        }
+
         public Attack getAttack(string atk)
         {
             for (int i = 0; i < this.attacks.Count; i++)

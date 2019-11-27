@@ -14,6 +14,7 @@ namespace CharacterTrainer.Model.Rooms
         {
             Character updatedChar = ((Character)character);
             updatedChar.Hunger -= 30;
+            updatedChar.Thirst -= 30;
             return updatedChar;
         }
     }

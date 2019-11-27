@@ -26,10 +26,10 @@ namespace CharacterTrainer.Model
         public ICharacter Consume(ICharacter character)
         {
             Character updatedChar = ((Character)character);
-            updatedChar.Energy += this.points[0];
-            updatedChar.Hp += this.points[1];
-            updatedChar.Hunger += this.points[2];
-            updatedChar.Thirst += this.points[3];
+            updatedChar.Energy = this.points[0];
+            updatedChar.Hp = this.points[1];
+            updatedChar.Hunger = this.points[2];
+            updatedChar.Thirst = this.points[3];
             return updatedChar;
         }
 

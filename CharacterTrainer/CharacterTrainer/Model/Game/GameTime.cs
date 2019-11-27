@@ -33,6 +33,11 @@ namespace CharacterTrainer.Model
             return TimeCounter;
         }
 
+        public int GetCurrentDay()
+        {
+            return DayCounter;
+        }
+
         public int GetYear()
         {
             return YearDuration;
