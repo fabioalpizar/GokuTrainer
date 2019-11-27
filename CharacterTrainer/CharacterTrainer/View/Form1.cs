@@ -12,9 +12,21 @@ namespace CharacterTrainer
 {
     public partial class Form1 : Form
     {
+
+        private readonly Image gokuSprite;
+        private Point movingPicturePosition = new Point(200, 200);
+
         public Form1()
         {
             InitializeComponent();
+            gokuSprite = Image.FromFile(@"Resources\images\goku\sprite.png");
         }
+
+        private void bgImage_Paint(object sender, PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            g.DrawImageUnscaled(gokuSprite, movingPicturePosition);
+        }
+
     }
 }
