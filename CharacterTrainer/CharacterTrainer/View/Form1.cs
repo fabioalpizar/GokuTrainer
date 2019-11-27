@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CharacterTrainer.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace CharacterTrainer
         public Form1()
         {
             InitializeComponent();
+            new GameLogic(3, 12);
         }
     }
 }

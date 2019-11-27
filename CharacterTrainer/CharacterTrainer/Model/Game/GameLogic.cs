@@ -44,10 +44,13 @@ namespace CharacterTrainer.Model
         {
             while(Running)
             {
+                Console.WriteLine(Time.GetCurrentTime());
                 if (Time.IsNewDay())
                 {
+                    Console.WriteLine("New day");
                     if (Time.IsNewYear())
                     {
+                        Console.WriteLine("New year");
                         NewYear();
                     }
                     NewDay();
@@ -55,9 +58,11 @@ namespace CharacterTrainer.Model
                 CheckRandomEvents();
                 if (IsRandomActivity)
                 {
+                    Console.WriteLine("Random Event");
                     CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
                 } else
                 {
+                    Console.WriteLine("Normal Event");
                     CurrentActivity = Controller.GetActivity();
                     CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
                 }
@@ -86,18 +91,21 @@ namespace CharacterTrainer.Model
         {
             if (this.ConditionCounter > 3)
             {
+                Console.WriteLine("Muere");
                 // El personaje muere
                 Running = false;
                 Controller.Finish(); // Mensaje para el GUI de que murio
             }
             if (CurrentCondition != null)
             {
+                Console.WriteLine("Curado");
                 if (CurrentCondition.Cured((Character)this.CurrentCharacter))
                 {
                     CurrentCondition = null;
                     ConditionCounter = 0;
                 } else
                 {
+                    Console.WriteLine("Enfermo");
                     CurrentCharacter = CurrentCondition.ExecuteStrat(CurrentCharacter);
                 }
             } else
@@ -106,20 +114,25 @@ namespace CharacterTrainer.Model
                 Character character = (Character)CurrentCharacter;
                 if (character.Hp < 30 && character.Hunger > 100 && character.Thirst > 100)
                 {
+                    Console.WriteLine("Sick");
                     condition = ConditionController.findCondition("sick");
-                } 
+                }
                 else if (character.Energy < 30 && character.Hunger < 30 && character.Thirst < 30)
                 {
+                    Console.WriteLine("Tired");
                     condition = ConditionController.findCondition("tired");
                 }
                 else if (character.Hunger > 150 && character.Thirst > 150)
                 {
+                    Console.WriteLine("Fat");
                     condition = ConditionController.findCondition("fat");
                 }
                 else if (character.Hp < 30 && character.Energy < 30 && character.Hunger < 30 && character.Thirst < 30)
                 {
+                    Console.WriteLine("Beatup");
                     condition = ConditionController.findCondition("beatup");
                 }
+                CurrentCondition = condition;
             }
         }
 

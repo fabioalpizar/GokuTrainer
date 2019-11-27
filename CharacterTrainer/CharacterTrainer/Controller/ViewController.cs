@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CharacterTrainer.Model.Activities;
+using CharacterTrainer.Model.Rooms;
 
 namespace CharacterTrainer.Controller
 {
@@ -11,12 +12,12 @@ namespace CharacterTrainer.Controller
     {
         public IStrategy GetActivity()
         {
-            throw new NotImplementedException();
+            return new Walk();
         }
 
         public void Finish()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("El programa termino");
         }
     }
 }
