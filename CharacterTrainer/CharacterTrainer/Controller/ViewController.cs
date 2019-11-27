@@ -10,9 +10,15 @@ namespace CharacterTrainer.Controller
 {
     class ViewController
     {
-        public IStrategy GetActivity()
+
+        public ViewController()
         {
-            return new Walk();
+
+        }
+
+        public string GetActivity()
+        {
+            return "walk";
         }
 
         public void Finish()

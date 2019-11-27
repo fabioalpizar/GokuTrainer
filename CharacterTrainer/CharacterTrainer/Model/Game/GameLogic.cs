@@ -19,6 +19,7 @@ namespace CharacterTrainer.Model
         private CharacterFactory Factory { get; set; }
         private ViewController Controller { get; set; }
         private ConditionController ConditionController { get; set; }
+        private ActivityController ActivityController { get; set; }
         private bool Running { get; set; }
         private IStrategy CurrentActivity { get; set; }
         private ICondition CurrentCondition { get; set; }
@@ -30,19 +31,24 @@ namespace CharacterTrainer.Model
 
         public GameLogic(int dayDuration, int yearDuration)
         {
-            Running = true;
-            IsRandomActivity = false;
-            Factory = new CharacterFactory();
-            CurrentCharacter = Factory.getNewCharacter();
-            Time = new GameTime(dayDuration, yearDuration);
-            CurrentActivity = new Walk();
+            this.Controller = new ViewController();
+            this.ConditionController = new ConditionController();
+            this.ActivityController = new ActivityController();
+            this.Running = true;
+            this.IsRandomActivity = false;
+            this.Factory = new CharacterFactory();
+            this.CurrentCharacter = Factory.getNewCharacter();
+            this.Time = new GameTime(dayDuration, yearDuration);
+            this.CurrentActivity = ActivityController.findActivity("walk");
+            this.CurrentCondition = null;
             Thread thr = new Thread(new ThreadStart(GameCicle));
             thr.Start();
         }
 
         public void GameCicle()
         {
-            while(Running)
+            NewDay();
+            while (Running)
             {
                 Console.WriteLine(Time.GetCurrentTime());
                 if (Time.IsNewDay())
@@ -63,7 +69,7 @@ namespace CharacterTrainer.Model
                 } else
                 {
                     Console.WriteLine("Normal Event");
-                    CurrentActivity = Controller.GetActivity();
+                    CurrentActivity = ActivityController.findActivity(Controller.GetActivity());
                     CurrentCharacter = CurrentActivity.ExecuteStrat(CurrentCharacter);
                 }
                 Thread.Sleep(1000);
@@ -98,15 +104,16 @@ namespace CharacterTrainer.Model
             }
             if (CurrentCondition != null)
             {
-                Console.WriteLine("Curado");
                 if (CurrentCondition.Cured((Character)this.CurrentCharacter))
                 {
+                    Console.WriteLine("Curado");
                     CurrentCondition = null;
                     ConditionCounter = 0;
                 } else
                 {
                     Console.WriteLine("Enfermo");
                     CurrentCharacter = CurrentCondition.ExecuteStrat(CurrentCharacter);
+                    ConditionCounter++;
                 }
             } else
             {

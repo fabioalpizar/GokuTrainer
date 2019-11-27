@@ -14,7 +14,7 @@ namespace CharacterTrainer.Model.Rooms
         private string name = "friends";
 
         public int Duration { get => duration; set => duration = value; }
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get => name; set => name = value; }
 
         public ICharacter ExecuteStrat(ICharacter character)
         {
