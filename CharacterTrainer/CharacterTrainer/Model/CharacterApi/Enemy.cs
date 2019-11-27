@@ -60,7 +60,7 @@ namespace CharacterTrainer.Model
             int i = rand.Next(this.attacks.Count);
             Attack atk = this.attacks[i];
             character.LowerHealth(atk.Damage);
-            this.RemoveAttack(atk);
+            //this.RemoveAttack(atk);
         }
     }
 }

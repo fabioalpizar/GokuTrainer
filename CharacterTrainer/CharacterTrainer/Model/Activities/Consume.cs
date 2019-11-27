@@ -12,7 +12,7 @@ namespace CharacterTrainer.Model.Rooms
 
         private IConsumable item;
         private string name = "consume";
-        private int duration = 3000;
+        private int duration = 2000;
 
         public IConsumable Item { get => item; set => item = value; }
         public int Duration { get => duration; set => duration = value; }

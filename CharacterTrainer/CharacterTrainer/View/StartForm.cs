@@ -19,6 +19,10 @@ namespace CharacterTrainer
         public StartForm()
         {
             InitializeComponent();
+<<<<<<< HEAD:CharacterTrainer/CharacterTrainer/View/StartForm.cs
+=======
+            new GameLogic(20, 12);
+>>>>>>> b61da7b168cc79689831648b2b3cdd137a1664bb:CharacterTrainer/CharacterTrainer/View/Form1.cs
             gokuSprite = Image.FromFile(@"Resources\images\goku\sprite.png");
         }
 

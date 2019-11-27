@@ -93,8 +93,9 @@ namespace CharacterTrainer.Model
             var rand = new Random();
             int i = rand.Next(this.attacks.Count);
             Attack atk = this.attacks[i];
+            Console.WriteLine(atk);
             character.LowerHealth(atk.Damage);
-            this.RemoveAttack(atk);
+            //this.RemoveAttack(atk);
         }
 
         public void LevelUp()

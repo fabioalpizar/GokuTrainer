@@ -13,6 +13,7 @@ namespace CharacterTrainer.Model.Rooms
         private CharacterFactory enemyFactory = new CharacterFactory();
         private string name = "fight";
         private int duration;
+        private CharacterFactory enemyFactory = new CharacterFactory();
 
         public Enemy Enemy { get => enemy; set => enemy = value; }
         public string Name { get => name; set => name = value; }
@@ -26,6 +27,8 @@ namespace CharacterTrainer.Model.Rooms
 
         private ICharacter battle(ICharacter character)
         {
+            int charLevel = ((Character)character).Level;
+            this.enemy = enemyFactory.getEnemy(charLevel);
             while (battleEnd(character))
             {
                 int charLevel = ((Character)character).Level;
