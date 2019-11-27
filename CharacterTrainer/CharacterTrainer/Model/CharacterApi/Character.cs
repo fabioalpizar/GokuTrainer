@@ -96,5 +96,15 @@ namespace CharacterTrainer.Model
             character.LowerHealth(atk.Damage);
             this.RemoveAttack(atk);
         }
+
+        public void LevelUp()
+        {
+            this.Level = Level + 1;
+            this.Speed = Speed + 1;
+            this.Hp = Hp + 1;
+            this.Happiness = Happiness + 1;
+            this.Energy = Energy + 1;
+        }
+
     }
 }
